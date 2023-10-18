@@ -1,6 +1,8 @@
 #include "main.h"
+#include <stdio.h>
+#include <limits.h>
 /**
- * print_alphabet - Prints alphabet
+ *print_alphabet - Prints alphabet
  *@n: number which found last digit
  * Return: void
  */
@@ -11,7 +13,7 @@ int print_last_digit(int n)
 
 	if (n < 0)
 	{
-		lastDigit = -1 * n % 10;
+		lastDigit = -(n % 10);
 	}
 	else
 	{
