@@ -21,17 +21,22 @@ void print_to_98(int n)
 			else
 			{
 				printf("%d, ", n);
-
 			}
 		}
-		_putchar('\n');
+		putchar('\n');
 	}
 	else
 	{
 		for (; n >= 98; n--)
 		{
 			printf("%d, ", n);
+			if (n == 98)
+			{
+				printf("%d", n);
+				printf("\n");
+				break;
+			}
 		}
-		_putchar('\n');
+		putchar('\n');
 	}
 }
