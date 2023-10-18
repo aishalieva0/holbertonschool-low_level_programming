@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <limits.h>
 /**
- *print_alphabet - Prints alphabet
+ *print_last_digit - prints the last digit of a number.
  *@n: number which found last digit
  * Return: void
  */
