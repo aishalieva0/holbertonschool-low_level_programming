@@ -9,43 +9,37 @@
 
 int _atoi(char *s)
 {
-	int num;
-	int sign = 1;
 	int i = 0;
-	long result = 0;
-	int signCount = 0;
+	int sign = 0;
+	int result = 0;
+	int length = 0;
+	int flag = 0;
+	int digit = 0;
 
-	while (s[i] == ' ')
-	{
-		i++;
-	}
 
-	while (s[i] == '-' || s[i] == '+')
+	while (s[length] != '\0')
+		length++;
+
+	while (i < length && flag == 0)
 	{
 		if (s[i] == '-')
-			signCount++;
-		i++;
-	}
+			++sign;
 
-	if (signCount % 2 != 0)
-		sign = -1;
-
-	while (s[i] != '\0')
-	{
 		if (s[i] >= '0' && s[i] <= '9')
 		{
-			num = s[i] - '0';
-			result = result * 10 + num;
-		}
-		else
-		{
-			if (result != 0)
-			{
+			digit = s[i] - '0';
+			if (sign % 2)
+				digit = -digit;
+			result = result * 10 + digit;
+			flag = 1;
+			if (s[i + 1] < '0' || s[i + 1] > '9')
 				break;
-			}
+			flag = 0;
 		}
 		i++;
 	}
+	if (flag == 0)
+		return (0);
 
-	return (result * sign);
+	return (result);
 }
