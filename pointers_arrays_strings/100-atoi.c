@@ -13,6 +13,7 @@ int _atoi(char *s)
 	int sign = 1;
 	int i = 0;
 	int result = 0;
+	int signCount = 0;
 
 	while (s[i] == ' ')
 	{
@@ -22,11 +23,12 @@ int _atoi(char *s)
 	while (s[i] == '-' || s[i] == '+')
 	{
 		if (s[i] == '-')
-		{
-			sign = -1;
-		}
-			i++;
+			signCount++;
+		i++;
 	}
+
+	if (signCount % 2 != 0)
+		sign = -1;
 
 	while (s[i] != '\0')
 	{
