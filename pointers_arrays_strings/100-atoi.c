@@ -12,7 +12,7 @@ int _atoi(char *s)
 	int num;
 	int sign = 1;
 	int i = 0;
-	int result = 0;
+	long result = 0;
 	int signCount = 0;
 
 	while (s[i] == ' ')
