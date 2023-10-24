@@ -1,0 +1,21 @@
+#include "main.h"
+#include "2-strlen.c"
+/**
+ * _atoi - convert a string to an integer
+ * @s: string
+ *
+ * Return: int
+ */
+
+int _atoi(char *s)
+{
+	int i, num, sign;
+	int length = _strlen(s);
+
+	for (i = 0; i < length; i++)
+	{
+		if (s[i] >= '0' && s[i] <= '9')
+			num = num * 10 + (*s - '0');
+	}
+	return (num);
+}
