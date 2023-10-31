@@ -2,13 +2,30 @@
 /**
  * _sqrt_recursion - returns the natural square root of a number
  * @n: number
+ * _sqrt_helper - finds square root
+ * @low: equals 1
+ * @high: equals n
  *
  * Return: int
  */
 
-int check(int n, int odd)
+int _sqrt_helper(int n, int low, int high)
 {
-	return (1 + check(n - odd, odd + 2));
+	int mid;
+	int square;
+
+	if (low > high)
+		return (-1);
+
+	mid = low + (high - low) / 2;
+	square = mid * mid;
+
+	if (square == n)
+		return (mid);
+	else if (square < n)
+		return (_sqrt_helper(n, mid + 1, high));
+	else
+		return (_sqrt_helper(n, low, mid - 1));
 }
 
 int _sqrt_recursion(int n)
@@ -16,5 +33,8 @@ int _sqrt_recursion(int n)
 	if (n < 0)
 		return (-1);
 
-	return (check(n, 1));
+	if (n == 0)
+		return (0);
+
+	return (_sqrt_helper(n, 1, n));
 }
